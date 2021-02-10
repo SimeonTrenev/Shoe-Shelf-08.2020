@@ -3,15 +3,15 @@ const { User, Shoe } = require('../models');
 module.exports = {
     get: {
         login(req, res, next){
-            res.render('./home/home.hbs', {
-                name: 'login'
-            })
+            res.render('./user/login.hbs')
         },
         register(req, res, next) {
-            res.render('./home/home.hbs', {
-                name: 'register'
-            })
+            res.render('./user/register.hbs')
+        },
+        profile(req, res, next) {
+            res.render('./user/profile.hbs')
         }
+
     },
     post:{}
 };
