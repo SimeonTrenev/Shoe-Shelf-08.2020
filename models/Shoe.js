@@ -24,7 +24,7 @@ const shoeSchema = new Schema({
         type: String,
         required: true
     },
-    sallesman: {
+    salesman: {
         type: ObjectId,
         required:true
     },
