@@ -1,6 +1,11 @@
+    const { Shoe } = require('../models')
+ 
+
 module.exports = {
     get: {
         all(req, res, next) {
+            const isLoggedIn = req.cookies[cookie] || '';
+
             res.render('./shoes/shoes.hbs')
         },
         create(req, res, next) {
