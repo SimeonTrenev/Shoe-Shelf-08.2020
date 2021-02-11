@@ -4,8 +4,6 @@
 module.exports = {
     get: {
         all(req, res, next) {
-            const isLoggedIn = req.cookies[cookie] || '';
-
             res.render('./shoes/shoes.hbs')
         },
         create(req, res, next) {
@@ -17,5 +15,8 @@ module.exports = {
         details(req, res, next) {
             res.render('./shoes/details.hbs')
         }
+    },
+    post: {
+        
     }
 }

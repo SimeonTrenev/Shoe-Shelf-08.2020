@@ -8,6 +8,15 @@ module.exports = {
     },
 
     verifyToken(token) {
+        return new Promise((resolve, reject) => {
+            jwt.verify(token, secret, (err, payLoad) => {
+                if(err){
+                    reject(err)
+                    return;
+                }
 
+                resolve(payLoad)
+            })
+        })
     },
 }
