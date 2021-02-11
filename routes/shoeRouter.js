@@ -6,5 +6,7 @@ module.exports = (router) => {
     router.get('/edit', shoeController.get.edit);
     router.get('/details', shoeController.get.details)
 
+    router.post('/create', shoeController.post.create)
+
     return router
 }

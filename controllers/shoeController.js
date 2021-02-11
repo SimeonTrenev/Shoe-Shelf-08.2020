@@ -17,6 +17,14 @@ module.exports = {
         }
     },
     post: {
-        
+        create(req, res, next) {
+            Shoe
+            .create({ ...req.body, sallesman: req.user._id })
+            .then(createdShoeOffer => {
+                console.log(createdShoeOffer)
+                res.redirect('/shoes/all')
+            })
+            .catch(err => console.log(err))
+        }
     }
 }

@@ -20,6 +20,10 @@ const shoeSchema = new Schema({
         type: String,
         required: true,
     },
+    description: {
+        type: String,
+        required: true
+    },
     sallesman: {
         type: ObjectId,
         required:true
