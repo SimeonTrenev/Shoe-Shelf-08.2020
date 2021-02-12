@@ -1,4 +1,5 @@
 const { userController } = require('../controllers');
+const { registerMiddleware } = require('../utils')
 
 module.exports = (router) => {
     router.get('/login', userController.get.login);
@@ -7,7 +8,7 @@ module.exports = (router) => {
     router.get('/logout', userController.get.logout);
 
     router.post('/login', userController.post.login);
-    router.post('/register', userController.post.register)
+    router.post('/register', registerMiddleware, userController.post.register)
 
     return router;
 };

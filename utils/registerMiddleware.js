@@ -1,0 +1,17 @@
+const { body } = require('express-validator')
+
+module.exports = [
+    body('email', 'The provided email is not valid!').isEmail(),
+    body('fullName', 'Please fill your names').isAlpha('en-US').isLength({ min: 4 }),
+    body('password', 'Your password should be at least 5 characters').isLength({ min: 5 }),
+    body('repeatPassword').custom(customRepeatPasswordCheck)
+];
+
+function customRepeatPasswordCheck(repeatPassword, { req }) {
+
+    if(repeatPassword !== req.body.password){
+        throw new Error('Passwords does not match!')
+    }
+
+    return true;
+}

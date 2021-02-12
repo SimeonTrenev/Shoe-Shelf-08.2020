@@ -1,6 +1,6 @@
 // const { userController } = require(".");
 const { User } = require("../models"); // === index.js //kato userModel ot Application
-const { jwt } = require("../utils");
+const { jwt, formValidator } = require("../utils");
 const { cookie } = require("../config");
 
 module.exports = {
@@ -44,8 +44,17 @@ module.exports = {
         .catch((err) => console.log(err));
     },
     register(req, res, next) {
+      
+      const formValidations = formValidator(req);
+
+      if(!formValidations.isOk){
+        res.render('./user/register.hbs', formValidations.contextOptions)
+        return;
+      }
+      
       const { email, fullName, password } = req.body;
 
+      
       User.findOne({ email })
         .then((user) => {
           if (user) {
