@@ -1,6 +1,6 @@
 const handlebars = require('express-handlebars');
 const cookieParser = require('cookie-parser');
-const { auth } = require('../utils')
+const { authMiddleware } = require('../utils')
 
 module.exports = (express, app) => {
     app.use(express.static('public'));
@@ -9,7 +9,7 @@ module.exports = (express, app) => {
 
     app.use(cookieParser());
 
-    app.use(auth);
+    app.use(authMiddleware);
 
     app.engine('hbs', handlebars({
         layoutsDir: 'views',

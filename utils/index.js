@@ -1,12 +1,16 @@
 const jwt = require('./jwt')
-const auth = require('./auth')
+const authMiddleware = require('./authMiddleware')
 const registerMiddleware = require('./registerMiddleware');
 const formValidator = require('./formValidator')
+const loginMiddlewareValidator = require('./loginMiddlewareValidator')
+const isAuthNeededMiddleware = require('./isAuthNeededMiddleware')
 
 module.exports = {
     jwt,
-    auth,
+    authMiddleware,
     registerMiddleware,
     formValidator,
-    
+    loginMiddlewareValidator,
+    isAuthNeededMiddleware,
+
 }

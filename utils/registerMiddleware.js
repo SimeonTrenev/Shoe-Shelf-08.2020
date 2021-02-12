@@ -2,7 +2,7 @@ const { body } = require('express-validator')
 
 module.exports = [
     body('email', 'The provided email is not valid!').isEmail(),
-    body('fullName', 'Please fill your names').isAlpha('en-US').isLength({ min: 4 }),
+    body('fullName', 'Please fill your names').isLength({ min: 5 }),
     body('password', 'Your password should be at least 5 characters').isLength({ min: 5 }),
     body('repeatPassword').custom(customRepeatPasswordCheck)
 ];
